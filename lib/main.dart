@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:qiita_client/router/router.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,26 +16,25 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
+      routerConfig: router,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+class BottomNavigationView extends StatefulWidget {
+  const BottomNavigationView({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<BottomNavigationView> createState() => _BottomNavigationViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _BottomNavigationViewState extends State<BottomNavigationView> {
   int _currentIndex = 0;
 
   final _pageWidgets = [
